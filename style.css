@@ -12,6 +12,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
 }
 
 .game-container {
@@ -117,6 +123,10 @@ body {
 }
 
 @media (max-width: 768px) {
+    body {
+        padding-bottom: 160px; /* Make room for touch controls */
+    }
+    
     .game-area {
         flex-direction: column;
         align-items: center;
@@ -129,5 +139,99 @@ body {
     
     .game-header h1 {
         font-size: 2em;
+    }
+    
+    .side-panel {
+        flex-direction: row;
+        gap: 10px;
+        max-width: 300px;
+    }
+    
+    .next-piece, .controls {
+        flex: 1;
+        padding: 10px;
+    }
+    
+    .controls p {
+        font-size: 0.8em;
+        margin: 2px 0;
+    }
+}
+
+/* Touch Controls */
+.touch-controls {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.control-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 5px 0;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid #fff;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.control-btn:active {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.control-btn.small {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Show touch controls on mobile devices */
+@media (max-width: 768px) and (pointer: coarse) {
+    .touch-controls {
+        display: block;
+    }
+}
+
+/* Also show on devices that support touch */
+@media (hover: none) and (pointer: coarse) {
+    .touch-controls {
+        display: block;
     }
 }

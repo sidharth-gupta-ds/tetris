@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Tetris Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -35,12 +35,12 @@
                 </div>
                 <div class="controls">
                     <h3>Controls</h3>
-                    <p>← → Move (tap once or hold)</p>
+                    <p>← → Move</p>
                     <p>↓ Soft Drop</p>
                     <p>↑ Rotate</p>
                     <p>Space Hard Drop</p>
-                    <p>P Pause</p>
-                    <p><small>Tip: Single tap for precise movement!</small></p>
+                    <p>P Pause • R Restart</p>
+                    <p><small>Touch controls available on mobile!</small></p>
                 </div>
             </div>
         </div>
@@ -48,11 +48,42 @@
         <div class="game-status">
             <div id="pause-overlay" class="overlay hidden">
                 <h2>PAUSED</h2>
-                <p>Press P to resume</p>
+                <p>Press P to resume or tap Pause button</p>
             </div>
             <div id="game-over-overlay" class="overlay hidden">
                 <h2>GAME OVER</h2>
-                <p>Press R to restart</p>
+                <p>Press R to restart or tap Restart button</p>
+            </div>
+        </div>
+        
+        <!-- Touch Controls for Mobile -->
+        <div class="touch-controls" id="touch-controls">
+            <div class="control-row top-row">
+                <button class="control-btn" id="rotate-btn" data-action="rotate">
+                    ↻
+                </button>
+                <button class="control-btn" id="hard-drop-btn" data-action="hard-drop">
+                    ⇓
+                </button>
+            </div>
+            <div class="control-row middle-row">
+                <button class="control-btn" id="left-btn" data-action="left">
+                    ←
+                </button>
+                <button class="control-btn" id="down-btn" data-action="down">
+                    ↓
+                </button>
+                <button class="control-btn" id="right-btn" data-action="right">
+                    →
+                </button>
+            </div>
+            <div class="control-row bottom-row">
+                <button class="control-btn small" id="pause-btn" data-action="pause">
+                    ⏸
+                </button>
+                <button class="control-btn small" id="restart-btn" data-action="restart">
+                    ⟲
+                </button>
             </div>
         </div>
     </div>
