@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>TETRIS</h1>
+            <div class="stats">
+                <div class="score">
+                    <span>Score:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="level">
+                    <span>Level:</span>
+                    <span id="level">1</span>
+                </div>
+                <div class="lines">
+                    <span>Lines:</span>
+                    <span id="lines">0</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-area">
+            <canvas id="game-canvas" width="300" height="600"></canvas>
+            <div class="side-panel">
+                <div class="next-piece">
+                    <h3>Next</h3>
+                    <canvas id="next-canvas" width="120" height="120"></canvas>
+                </div>
+                <div class="controls">
+                    <h3>Controls</h3>
+                    <p>← → Move (tap once or hold)</p>
+                    <p>↓ Soft Drop</p>
+                    <p>↑ Rotate</p>
+                    <p>Space Hard Drop</p>
+                    <p>P Pause</p>
+                    <p><small>Tip: Single tap for precise movement!</small></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-status">
+            <div id="pause-overlay" class="overlay hidden">
+                <h2>PAUSED</h2>
+                <p>Press P to resume</p>
+            </div>
+            <div id="game-over-overlay" class="overlay hidden">
+                <h2>GAME OVER</h2>
+                <p>Press R to restart</p>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
